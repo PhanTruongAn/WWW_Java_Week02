@@ -1,5 +1,6 @@
 package com.example.entities;
 
+import com.example.enums.EmployeeStatus;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -28,7 +29,7 @@ public class Employee {
     private String phone;
     @Basic
     @Column(name = "status")
-    private Integer status;
+    private EmployeeStatus status;
     @OneToMany(mappedBy = "employeeByEmployeeId")
     private Collection<Orders> ordersByEmpIp;
 
@@ -80,11 +81,11 @@ public class Employee {
         this.phone = phone;
     }
 
-    public Integer getStatus() {
+    public EmployeeStatus getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(EmployeeStatus status) {
         this.status = status;
     }
 

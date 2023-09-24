@@ -1,5 +1,6 @@
 package com.example.entities;
 
+import com.example.enums.ProductStatus;
 import jakarta.persistence.*;
 
 import java.util.Collection;
@@ -21,7 +22,7 @@ public class Product {
     private String name;
     @Basic
     @Column(name = "status")
-    private Integer status;
+    private ProductStatus status;
     @Basic
     @Column(name = "unit")
     private String unit;
@@ -62,11 +63,11 @@ public class Product {
         this.name = name;
     }
 
-    public Integer getStatus() {
+    public ProductStatus getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(ProductStatus status) {
         this.status = status;
     }
 
