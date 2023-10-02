@@ -1,24 +1,27 @@
-package com.example.entities;
+package com.example.models;
 
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "orders")
+@NamedQuery(name = "Orders.findAll", query = "from Orders")
 public class Orders {
     @Id
     @Column(name = "order_id")
     private long orderId;
     @Basic
-    @Column(name = "order_date")
-    private Timestamp orderDate;
+    @Column(name = "order_date", columnDefinition = "DATETIME(6)")
+    private LocalDate orderDate;
     @OneToMany(mappedBy = "ordersByOrderId")
-    private Collection<OrderDetail> orderDetailsByOrderId;
+    private List<OrderDetail> orderDetailsByOrderId;
     @ManyToOne
     @JoinColumn(name = "cust_id", referencedColumnName = "cust_id")
-    private Customer customerByCustId;
+    private Customer customer;
     @ManyToOne
     @JoinColumn(name = "employee_id", referencedColumnName = "emp_ip")
     private Employee employeeByEmployeeId;
@@ -31,11 +34,11 @@ public class Orders {
         this.orderId = orderId;
     }
 
-    public Timestamp getOrderDate() {
+    public LocalDate getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(Timestamp orderDate) {
+    public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
     }
 
@@ -59,20 +62,20 @@ public class Orders {
         return result;
     }
 
-    public Collection<OrderDetail> getOrderDetailsByOrderId() {
+    public List<OrderDetail> getOrderDetailsByOrderId() {
         return orderDetailsByOrderId;
     }
 
-    public void setOrderDetailsByOrderId(Collection<OrderDetail> orderDetailsByOrderId) {
+    public void setOrderDetailsByOrderId(List<OrderDetail> orderDetailsByOrderId) {
         this.orderDetailsByOrderId = orderDetailsByOrderId;
     }
 
     public Customer getCustomerByCustId() {
-        return customerByCustId;
+        return customer;
     }
 
     public void setCustomerByCustId(Customer customerByCustId) {
-        this.customerByCustId = customerByCustId;
+        this.customer = customerByCustId;
     }
 
     public Employee getEmployeeByEmployeeId() {
@@ -89,7 +92,7 @@ public class Orders {
                 "orderId=" + orderId +
                 ", orderDate=" + orderDate +
                 ", orderDetailsByOrderId=" + orderDetailsByOrderId +
-                ", customerByCustId=" + customerByCustId +
+                ", customerByCustId=" + customer +
                 ", employeeByEmployeeId=" + employeeByEmployeeId +
                 '}';
     }

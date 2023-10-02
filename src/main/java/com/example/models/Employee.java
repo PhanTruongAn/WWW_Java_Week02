@@ -1,23 +1,27 @@
-package com.example.entities;
+package com.example.models;
 
 import com.example.enums.EmployeeStatus;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "employee")
+@NamedQuery(name = "Employee.findAll", query = "select e from Employee e where e.status=:statusActive")
 public class Employee {
     @Id
     @Column(name = "emp_ip")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long empIp;
     @Basic
     @Column(name = "address")
     private String address;
     @Basic
-    @Column(name = "dob")
-    private Timestamp dob;
+    @Column(name = "dob", columnDefinition = "DATETIME(6)")
+    private LocalDate dob;
     @Basic
     @Column(name = "email")
     private String email;
@@ -27,11 +31,15 @@ public class Employee {
     @Basic
     @Column(name = "phone")
     private String phone;
-    @Basic
-    @Column(name = "status")
+
+    @Column(name = "status", columnDefinition = "INT(11)")
     private EmployeeStatus status;
     @OneToMany(mappedBy = "employeeByEmployeeId")
-    private Collection<Orders> ordersByEmpIp;
+    private List<Orders> ordersByEmpIp;
+
+    public Employee() {
+
+    }
 
     public long getEmpIp() {
         return empIp;
@@ -49,11 +57,11 @@ public class Employee {
         this.address = address;
     }
 
-    public Timestamp getDob() {
+    public LocalDate getDob() {
         return dob;
     }
 
-    public void setDob(Timestamp dob) {
+    public void setDob(LocalDate dob) {
         this.dob = dob;
     }
 
@@ -89,6 +97,15 @@ public class Employee {
         this.status = status;
     }
 
+    public Employee(String address, LocalDate dob, String email, String fullname, String phone, EmployeeStatus status) {
+        this.address = address;
+        this.dob = dob;
+        this.email = email;
+        this.fullname = fullname;
+        this.phone = phone;
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -119,11 +136,11 @@ public class Employee {
         return result;
     }
 
-    public Collection<Orders> getOrdersByEmpIp() {
+    public List<Orders> getOrdersByEmpIp() {
         return ordersByEmpIp;
     }
 
-    public void setOrdersByEmpIp(Collection<Orders> ordersByEmpIp) {
+    public void setOrdersByEmpIp(List<Orders> ordersByEmpIp) {
         this.ordersByEmpIp = ordersByEmpIp;
     }
 

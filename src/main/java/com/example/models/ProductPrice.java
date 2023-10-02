@@ -1,16 +1,17 @@
-package com.example.entities;
+package com.example.models;
 
 import jakarta.persistence.*;
 
-import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "product_price")
+@NamedQuery(name = "ProductPrice.findAll", query = "from ProductPrice")
 public class ProductPrice {
     @Id
     @Column(name = "price_date_time",columnDefinition = "DATETIME(6)")
-    private LocalDateTime priceDateTime;
+    private LocalDate priceDateTime;
     @Basic
     @Column(name = "note")
     private String note;
@@ -21,11 +22,11 @@ public class ProductPrice {
     @JoinColumn(name = "product_id", referencedColumnName = "product_id")
     private Product productByProductId;
 
-    public LocalDateTime getPriceDateTime() {
+    public LocalDate getPriceDateTime() {
         return priceDateTime;
     }
 
-    public void setPriceDateTime(LocalDateTime priceDateTime) {
+    public void setPriceDateTime(LocalDate priceDateTime) {
         this.priceDateTime = priceDateTime;
     }
 

@@ -2,7 +2,7 @@ package com.example.enums;
 
 public enum EmployeeStatus {
     ACTIVE(1),
-    DEACTIVE(0),
+    IN_ACTIVE(0),
     DELETE(-1)
     ;
 

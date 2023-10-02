@@ -1,13 +1,16 @@
-package com.example.entities;
+package com.example.models;
 
 import com.example.enums.ProductStatus;
 import jakarta.persistence.*;
 
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "product")
+@NamedQuery(name = "Product.findAll", query = "select p from Product p where p.status=:status")
 public class Product {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "product_id")
     private long productId;
@@ -20,16 +23,15 @@ public class Product {
     @Basic
     @Column(name = "name")
     private String name;
-    @Basic
-    @Column(name = "status")
+    @Column(name = "status",columnDefinition = "INT(11)")
     private ProductStatus status;
     @Basic
     @Column(name = "unit")
     private String unit;
     @OneToMany(mappedBy = "productByProductId")
-    private Collection<OrderDetail> orderDetailsByProductId;
+    private List<OrderDetail> orderDetailsByProductId;
     @OneToMany(mappedBy = "productByProductId")
-    private Collection<ProductImage> productImagesByProductId;
+    private List<ProductImage> productImagesByProductId;
 
     public long getProductId() {
         return productId;
@@ -108,19 +110,19 @@ public class Product {
         return result;
     }
 
-    public Collection<OrderDetail> getOrderDetailsByProductId() {
+    public List<OrderDetail> getOrderDetailsByProductId() {
         return orderDetailsByProductId;
     }
 
-    public void setOrderDetailsByProductId(Collection<OrderDetail> orderDetailsByProductId) {
+    public void setOrderDetailsByProductId(List<OrderDetail> orderDetailsByProductId) {
         this.orderDetailsByProductId = orderDetailsByProductId;
     }
 
-    public Collection<ProductImage> getProductImagesByProductId() {
+    public List<ProductImage> getProductImagesByProductId() {
         return productImagesByProductId;
     }
 
-    public void setProductImagesByProductId(Collection<ProductImage> productImagesByProductId) {
+    public void setProductImagesByProductId(List<ProductImage> productImagesByProductId) {
         this.productImagesByProductId = productImagesByProductId;
     }
 

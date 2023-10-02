@@ -4,13 +4,13 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
     <persistence-unit name="Lab02-week02">
-        <class>com.example.entities.Customer</class>
-        <class>com.example.entities.Employee</class>
-        <class>com.example.entities.OrderDetail</class>
-        <class>com.example.entities.Orders</class>
-        <class>com.example.entities.Product</class>
-        <class>com.example.entities.ProductImage</class>
-        <class>com.example.entities.ProductPrice</class>
+        <class>com.example.models.Customer</class>
+        <class>com.example.models.Employee</class>
+        <class>com.example.models.OrderDetail</class>
+        <class>com.example.models.Orders</class>
+        <class>com.example.models.Product</class>
+        <class>com.example.models.ProductImage</class>
+        <class>com.example.models.ProductPrice</class>
 
         <properties>
             <property name="toplink.jdbc.url" value="jdbc:mariadb://localhost:3306/tet"/>
@@ -29,7 +29,7 @@
             <property name="eclipselink.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
             <property name="eclipselink.jdbc.user" value="root"/>
             <property name="eclipselink.jdbc.password" value="123"/>
-            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="jakarta.persistence.schema-generation.database.action" value="none"/>
         </properties>
     </persistence-unit>
 </persistence>
