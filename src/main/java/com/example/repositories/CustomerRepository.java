@@ -4,6 +4,9 @@ import com.example.db.ConnectionDB;
 import com.example.models.Customer;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Query;
+import org.hibernate.Session;
+import org.hibernate.query.NativeQuery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,6 +28,18 @@ public class CustomerRepository {
         return em.createNamedQuery("Customer.findAll",Customer.class).getResultList();
     }
 
+    //Get MaxId
+    public long nextAutoID(){
+        Session session = em.unwrap(Session.class);
+
+        // Sử dụng Hibernate Native SQL để lấy giá trị AUTO_INCREMENT
+        NativeQuery<?> query = session.createNativeQuery("SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = :schema AND TABLE_NAME = :table");
+        query.setParameter("schema", "tet");
+        query.setParameter("table", "customer");
+
+        Long nextId = (Long) query.uniqueResult();
+        return nextId;
+    }
 
     // Insert
     public boolean insertCus(Customer cus) {

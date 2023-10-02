@@ -28,7 +28,15 @@ public class Customer {
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private List<Orders> orderList;
 
+    public Customer(long custId,String address, String email, String custName, String phone) {
+        this.custId = custId;
+        this.address = address;
+        this.email = email;
+        this.custName = custName;
+        this.phone = phone;
+    }
     public Customer(String address, String email, String custName, String phone) {
+
         this.address = address;
         this.email = email;
         this.custName = custName;

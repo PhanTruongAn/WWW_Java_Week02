@@ -19,12 +19,12 @@ public class EmployeeStatusConvert implements AttributeConverter<EmployeeStatus,
 
     @Override
     public EmployeeStatus convertToEntityAttribute(Integer integer) {
-        if (integer == null) {
-            return null;
-        }
-        return Stream.of(EmployeeStatus.values())
-                .filter(x -> x.getValue() == integer)
-                .findFirst()
-                .orElseThrow(IllegalArgumentException::new);
+        if (integer == 1)
+            return EmployeeStatus.ACTIVE;
+        if (integer == 0)
+            return EmployeeStatus.IN_ACTIVE;
+        if (integer == -1)
+            return EmployeeStatus.DELETE;
+        return null;
     }
 }

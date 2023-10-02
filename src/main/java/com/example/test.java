@@ -16,14 +16,16 @@ import java.util.Optional;
 
 public class test {
     public static void main(String[] args) {
-        EmployeeServices data = new EmployeeServices();
-//
-//        Customer cus = new Customer("casiid","phanan1871@gmail.com","PhanAn1","01234566789");
-//        boolean rs = data.addCus(cus);
-//        System.err.println(rs);
+        CustomerServices data = new CustomerServices();
+//        long size = data.nextAutoID();
+//        System.out.println(size);
+        long id = 11;
+        Customer cus = new Customer(id,"vsdvs","vsdvsd","fwqfq","vvbr");
+        boolean rs = data.insertCus(cus);
+        System.err.println(rs);
 //        Optional<Customer> cus = data.findbyId(4L);
 //        System.out.println(cus);
-        ConnectionDB.getConnection();
+//        ConnectionDB.getConnection();
 //        boolean rs  = data.activeEmp(1L);
 //        System.out.println(rs);
 //        Optional<Employee> em = data.findById(3L);

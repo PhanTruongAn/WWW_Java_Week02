@@ -35,6 +35,15 @@ public class ControlServlet extends HttpServlet {
                  case "/deleteCustomer":
                      customerModel.deleteCustomer(request,response);
                      break;
+                 case "/insertCustomer":
+                     customerModel.insertCustomer(request,response);
+                     break;
+                 case "/loadInfIntoUpdateForm":
+                     customerModel.loadInfIntoUpdateForm(request,response);
+                     break;
+                 case "/updateCustomer":
+                     customerModel.updateCustomer(request,response);
+                     break;
                  case "/deleteEmployee":
                      employeeModel.deleteEmp(request,response);
                      break;

@@ -29,4 +29,9 @@ public class CustomerServices {
     public Optional<Customer> findById(long id){
         return  customerRepository.findById(id);
     }
+
+    public long nextAutoID(){
+        return customerRepository.nextAutoID();
+    }
+
 }

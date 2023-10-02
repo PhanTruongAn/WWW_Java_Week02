@@ -1,5 +1,6 @@
 package com.example.convert;
 
+import com.example.enums.EmployeeStatus;
 import com.example.enums.ProductStatus;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
@@ -19,12 +20,12 @@ public class ProductStatusConvert implements AttributeConverter<ProductStatus, I
 
     @Override
     public ProductStatus convertToEntityAttribute(Integer integer) {
-        if (integer == null) {
-            return null;
-        }
-       return Stream.of(ProductStatus.values())
-               .filter(x -> x.getValue() == integer)
-               .findFirst()
-               .orElseThrow(IllegalArgumentException::new);
+        if (integer == 1)
+            return ProductStatus.ACTIVE;
+        if (integer == 0)
+            return ProductStatus.IN_ACTIVE;
+        if (integer == -1)
+            return ProductStatus.TERMINATE;
+        return null;
     }
 }

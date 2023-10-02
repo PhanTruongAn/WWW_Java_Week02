@@ -67,7 +67,7 @@
                                     name="delete"><a style="text-decoration: none" href="deleteCustomer?idCustomer=<%=dsCus.getCustId()%>">Delete</a>
                             </button>
                             <button class="btn btn-warning bi bi-pencil-square"
-                                    name="update"><a style="text-decoration: none" href="loadInfIntoUpdateForm?accountID=">Update</a></button>
+                                    name="update"><a style="text-decoration: none" href="loadInfIntoUpdateForm?cutomerID=<%=dsCus.getCustId()%>">Update</a></button>
                         </td>
                     </tr>
                     <%
@@ -78,7 +78,7 @@
         </div>
     </div>
 
-        <button class="btn btn-success" >Thêm account</button>
+        <button class="btn btn-success" ><a style="text-decoration: none" class="corner-link" href="insertCustomer.jsp">Thêm customer</a></button>
     <button class="btn btn-success"><a style="text-decoration: none" class="corner-link" href="index.jsp">Quay lại menu</a></button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
