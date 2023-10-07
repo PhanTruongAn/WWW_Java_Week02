@@ -97,6 +97,15 @@ public class Employee {
         this.status = status;
     }
 
+    public Employee(long empIp,String address, LocalDate dob, String email, String fullname, String phone, EmployeeStatus status) {
+        this.empIp = empIp;
+        this.address = address;
+        this.dob = dob;
+        this.email = email;
+        this.fullname = fullname;
+        this.phone = phone;
+        this.status = status;
+    }
     public Employee(String address, LocalDate dob, String email, String fullname, String phone, EmployeeStatus status) {
         this.address = address;
         this.dob = dob;
@@ -106,35 +115,7 @@ public class Employee {
         this.status = status;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        Employee employee = (Employee) o;
-
-        if (empIp != employee.empIp) return false;
-        if (address != null ? !address.equals(employee.address) : employee.address != null) return false;
-        if (dob != null ? !dob.equals(employee.dob) : employee.dob != null) return false;
-        if (email != null ? !email.equals(employee.email) : employee.email != null) return false;
-        if (fullname != null ? !fullname.equals(employee.fullname) : employee.fullname != null) return false;
-        if (phone != null ? !phone.equals(employee.phone) : employee.phone != null) return false;
-        if (status != null ? !status.equals(employee.status) : employee.status != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (empIp ^ (empIp >>> 32));
-        result = 31 * result + (address != null ? address.hashCode() : 0);
-        result = 31 * result + (dob != null ? dob.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (fullname != null ? fullname.hashCode() : 0);
-        result = 31 * result + (phone != null ? phone.hashCode() : 0);
-        result = 31 * result + (status != null ? status.hashCode() : 0);
-        return result;
-    }
 
     public List<Orders> getOrdersByEmpIp() {
         return ordersByEmpIp;

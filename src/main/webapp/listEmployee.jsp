@@ -1,7 +1,5 @@
-<%@ page import="com.example.models.Customer" %>
+
 <%@ page import="java.util.List" %>
-<%@ page import="com.example.service.CustomerServices" %>
-<%@ page import="org.checkerframework.checker.units.qual.C" %>
 <%@ page import="com.example.service.EmployeeServices" %>
 <%@ page import="com.example.models.Employee" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -75,7 +73,7 @@
                                 name="delete"><a style="text-decoration: none" href="deleteEmployee?idEmployee=<%=dsEmp.getEmpIp()%>">Delete</a>
                         </button>
                         <button class="btn btn-warning bi bi-pencil-square"
-                                name="update"><a style="text-decoration: none" href="loadInfIntoUpdateForm?accountID=">Update</a></button>
+                                name="update"><a style="text-decoration: none" href="loadInfEmpIntoUpdateForm?employeeID=<%=dsEmp.getEmpIp()%>">Update</a></button>
                     </td>
                 </tr>
                 <%
@@ -86,7 +84,7 @@
         </div>
     </div>
 
-    <button class="btn btn-success" >Thêm account</button>
+    <button class="btn btn-success" ><a style="text-decoration: none" class="corner-link" href="insertEmployee.jsp">Thêm employee</a></button>
     <button class="btn btn-success"><a style="text-decoration: none" class="corner-link" href="index.jsp">Quay lại menu</a></button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"

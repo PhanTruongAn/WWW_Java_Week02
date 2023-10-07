@@ -1,10 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.Optional" %>
+<%@ page import="com.example.service.CustomerServices" %>
 <%@ page import="com.example.models.Customer" %>
 <html>
 <head>
-    <title>Thêm Account</title>
+    <title>Insert Employee</title>
 </head>
 <body>
 <style>
@@ -85,29 +85,29 @@
     }
 </style>
 <header>
-    <h1>Update Customer</h1>
+    <h1>Insert Employee</h1>
 </header>
 <div class="container">
-    <%
-        Optional<Customer> cus = (Optional<Customer>) request.getAttribute("loadInfo");
-    %>
-    <form action="updateCustomer" method="post">
-        <label>ID:</label>
-        <input type="text" name="idCustomer" class="text" value="<%=cus.get().getCustId()%>" required>
+    <form action="insertEmployee" method="post">
         <label>Họ và Tên:</label>
-        <input type="text" name="fullName" class="text" value="<%=cus.get().getCustName()%>" required>
+        <input type="text" name="fullName" class="text" required>
 
         <label>Số điện thoại:</label>
-        <input type="text" name="phone" class="text" value="<%=cus.get().getPhone()%>" required>
+        <input type="text" name="phone" class="text" required>
 
         <label>Địa chỉ:</label>
-        <input type="text" name="address" class="text" value="<%=cus.get().getAddress()%>" required>
+        <input type="text" name="address" class="text" required>
 
         <label>Email:</label>
-        <input type="text" name="email" class="text" value="<%=cus.get().getEmail()%>" required>
+        <input type="text" name="email" class="text" required>
+
+        <label>Date of birth:</label>
+        <input type="date" name="date" class="text" required>
+
         <button type="submit" name="submit" value="submit">Xác nhận</button>
+
     </form>
-    <button class="btn btn-success"><a style="text-decoration: none" class="corner-link" href="listCustomer.jsp">Quay lại danh sách</a></button>
+    <button class="btn btn-success"><a style="text-decoration: none" class="corner-link" href="listEmployee.jsp">Quay lại danh sách</a></button>
 </div>
 </body>
 </html>

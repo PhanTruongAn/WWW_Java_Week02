@@ -126,6 +126,27 @@ public class Product {
         this.productImagesByProductId = productImagesByProductId;
     }
 
+    public Product() {
+    }
+
+    public Product(long productId, String description, String manufacturerName, String name, ProductStatus status, String unit) {
+        this.productId = productId;
+        this.description = description;
+        this.manufacturerName = manufacturerName;
+        this.name = name;
+        this.status = status;
+        this.unit = unit;
+
+    }
+    public Product(String description, String manufacturerName, String name, ProductStatus status, String unit) {
+        this.description = description;
+        this.manufacturerName = manufacturerName;
+        this.name = name;
+        this.status = status;
+        this.unit = unit;
+
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -135,8 +156,6 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", status=" + status +
                 ", unit='" + unit + '\'' +
-                ", orderDetailsByProductId=" + orderDetailsByProductId +
-                ", productImagesByProductId=" + productImagesByProductId +
                 '}';
     }
 }

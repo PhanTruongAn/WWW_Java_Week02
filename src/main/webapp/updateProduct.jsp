@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.util.List" %>
+<%@ page import="com.example.models.Product" %>
 <%@ page import="java.util.Optional" %>
-<%@ page import="com.example.models.Customer" %>
 <html>
 <head>
     <title>Thêm Account</title>
@@ -85,29 +84,35 @@
     }
 </style>
 <header>
-    <h1>Update Customer</h1>
+    <h1>Update Product</h1>
 </header>
 <div class="container">
     <%
-        Optional<Customer> cus = (Optional<Customer>) request.getAttribute("loadInfo");
+          Optional<Product> product = (Optional<Product>) request.getAttribute("loadInfo");
     %>
-    <form action="updateCustomer" method="post">
+    <form action="updateProduct" method="post">
         <label>ID:</label>
-        <input type="text" name="idCustomer" class="text" value="<%=cus.get().getCustId()%>" required>
-        <label>Họ và Tên:</label>
-        <input type="text" name="fullName" class="text" value="<%=cus.get().getCustName()%>" required>
+        <input type="text" name="idProduct" class="text" value="<%=product.get().getProductId()%>"  required>
+        <label>Name:</label>
+        <input type="text" name="nameUp" class="text" value="<%=product.get().getName()%>" required>
 
-        <label>Số điện thoại:</label>
-        <input type="text" name="phone" class="text" value="<%=cus.get().getPhone()%>" required>
+        <label>Description:</label>
+        <input type="text" name="descriptionUp" class="text" value="<%=product.get().getDescription()%>" required>
 
-        <label>Địa chỉ:</label>
-        <input type="text" name="address" class="text" value="<%=cus.get().getAddress()%>" required>
+        <label>ManufacturerName:</label>
+        <input type="text" name="nsxUp" class="text" value="<%=product.get().getManufacturerName()%>" required>
 
-        <label>Email:</label>
-        <input type="text" name="email" class="text" value="<%=cus.get().getEmail()%>" required>
+        <label>Status:</label>
+        <select name="statusUp" class="text" required>
+            <option value="<%=product.get().getStatus()%>">ACTIVE</option>
+            <option value="INACTIVE">INACTIVE</option>
+        </select>
+
+        <label>Unit:</label>
+        <input type="text" name="unitUp" class="text" value="<%=product.get().getUnit()%>" required>
         <button type="submit" name="submit" value="submit">Xác nhận</button>
     </form>
-    <button class="btn btn-success"><a style="text-decoration: none" class="corner-link" href="listCustomer.jsp">Quay lại danh sách</a></button>
+    <button class="btn btn-success"><a style="text-decoration: none" class="corner-link" href="listProduct.jsp">Quay lại danh sách</a></button>
 </div>
 </body>
 </html>

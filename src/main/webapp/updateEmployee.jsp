@@ -1,7 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.Optional" %>
+<%@ page import="com.example.service.CustomerServices" %>
 <%@ page import="com.example.models.Customer" %>
+<%@ page import="java.util.Optional" %>
+<%@ page import="com.example.models.Employee" %>
 <html>
 <head>
     <title>Thêm Account</title>
@@ -85,29 +87,41 @@
     }
 </style>
 <header>
-    <h1>Update Customer</h1>
+    <h1>Update Employee</h1>
 </header>
 <div class="container">
     <%
-        Optional<Customer> cus = (Optional<Customer>) request.getAttribute("loadInfo");
+        Optional<Employee> em = (Optional<Employee>) request.getAttribute("employee") ;
     %>
-    <form action="updateCustomer" method="post">
+    <form action="updateEmployee" method="post">
         <label>ID:</label>
-        <input type="text" name="idCustomer" class="text" value="<%=cus.get().getCustId()%>" required>
+        <input type="text" name="ID" class="text" value="<%=em.get().getEmpIp()%>" required>
+
         <label>Họ và Tên:</label>
-        <input type="text" name="fullName" class="text" value="<%=cus.get().getCustName()%>" required>
+        <input type="text" name="fullNameUp" class="text" value="<%=em.get().getFullname()%>" required>
 
         <label>Số điện thoại:</label>
-        <input type="text" name="phone" class="text" value="<%=cus.get().getPhone()%>" required>
+        <input type="text" name="phoneUp" class="text" value="<%=em.get().getPhone()%>"required>
 
         <label>Địa chỉ:</label>
-        <input type="text" name="address" class="text" value="<%=cus.get().getAddress()%>" required>
+        <input type="text" name="addressUp" class="text" value="<%=em.get().getAddress()%>" required>
 
         <label>Email:</label>
-        <input type="text" name="email" class="text" value="<%=cus.get().getEmail()%>" required>
+        <input type="text" name="emailUp" class="text"  value="<%=em.get().getEmail()%>" required>
+
+        <label>Date of birth:</label>
+        <input type="date" name="dateUp" class="text" value="<%=em.get().getDob()%>" required>
+
+        <label>Status:</label>
+        <select name="statusUp" class="text" required>
+            <option value="<%=em.get().getEmpIp()%>>">ACTIVE</option>
+            <option value="INACTIVE">INACTIVE</option>
+        </select>
+
         <button type="submit" name="submit" value="submit">Xác nhận</button>
+
     </form>
-    <button class="btn btn-success"><a style="text-decoration: none" class="corner-link" href="listCustomer.jsp">Quay lại danh sách</a></button>
+    <button class="btn btn-success"><a style="text-decoration: none" class="corner-link" href="listEmployee.jsp">Quay lại danh sách</a></button>
 </div>
 </body>
 </html>

@@ -85,16 +85,10 @@
     }
 </style>
 <header>
-    <h1>Thêm Account</h1>
+    <h1>Insert Customer</h1>
 </header>
 <div class="container">
-    <%
-        CustomerServices services = new CustomerServices();
-        String id =String.valueOf(services.nextAutoID());
-    %>
     <form action="insertCustomer" method="post">
-        <label>ID:</label>
-        <input type="text" name="idCustomer" class="text" value="<%=id%>" disabled required>
         <label>Họ và Tên:</label>
         <input type="text" name="fullName" class="text" required>
 
@@ -108,7 +102,7 @@
         <input type="text" name="email" class="text" required>
         <button type="submit" name="submit" value="submit">Xác nhận</button>
     </form>
-    <button class="btn btn-success"><a style="text-decoration: none" class="corner-link" href="listCustomer.jsp.jsp">Quay lại danh sách</a></button>
+    <button class="btn btn-success"><a style="text-decoration: none" class="corner-link" href="listCustomer.jsp">Quay lại danh sách</a></button>
 </div>
 </body>
 </html>

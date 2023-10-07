@@ -3,10 +3,6 @@ package com.example.frontend.controller;
 import com.example.frontend.models.CustomerModel;
 import com.example.frontend.models.EmployeeModel;
 import com.example.frontend.models.ProductModel;
-import com.example.models.Customer;
-import com.example.repositories.CustomerRepository;
-import com.example.service.CustomerServices;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,7 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet("/")
 public class ControlServlet extends HttpServlet {
@@ -46,6 +41,27 @@ public class ControlServlet extends HttpServlet {
                      break;
                  case "/deleteEmployee":
                      employeeModel.deleteEmp(request,response);
+                     break;
+                 case "/insertEmployee":
+                     employeeModel.insertEmployee(request,response);
+                     break;
+                 case "/loadInfEmpIntoUpdateForm":
+                     employeeModel.loadInfIntoUpdateForm(request,response);
+                     break;
+                 case "/updateEmployee":
+                     employeeModel.updateEmployee(request,response);
+                     break;
+                 case "/insertProduct":
+                     productModel.insertProduct(request,response);
+                     break;
+                 case "/deleteProduct":
+                     productModel.deleteProduct(request,response);
+                     break;
+                 case "/loadInfProIntoUpdateForm":
+                     productModel.loadInfProIntoUpdateForm(request,response);
+                     break;
+                 case "/updateProduct":
+                     productModel.updateProduct(request,response);
                      break;
                  default:
                      break;

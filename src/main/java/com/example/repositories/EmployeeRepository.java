@@ -54,8 +54,7 @@ public class EmployeeRepository {
             transaction.rollback();
             logger.error(e.getMessage());
         }
-
-          return false;
+        return false;
     }
 
     // Delete
