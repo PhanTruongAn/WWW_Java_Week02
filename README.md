@@ -10,7 +10,8 @@
 ![image](https://github.com/PhanTruongAn/WWW_Java_Week02/assets/98084458/837965fd-6769-4249-a287-b38cc0ae6641)
 
 # Add Customer
-![Uploading image.png…]()
+![image](https://github.com/PhanTruongAn/WWW_Java_Week02/assets/98084458/7ca8e579-2e2b-4f59-ab68-3d48d5604f2e)
+
 
 
 
